@@ -26,7 +26,6 @@ pipeline {
             snyk auth ${SNYK_TOKEN}
             snyk test --all-projects --severity-threshold=medium
             snyk monitor --all-projects
-          // 'mvn snyk:test -fn'
             """
           }
         }
