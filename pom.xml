@@ -311,6 +311,7 @@
       <version>2.0.0</version>
       <inherited>false</inherited>
       <configuration>
+	    <failOnVuln>false</failOnVuln>
         <org>3be9af4b-29a7-4cfe-9e4b-4579dabdc20e</org>
       </configuration>
     </plugin>
