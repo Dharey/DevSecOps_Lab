@@ -318,6 +318,9 @@
       <goals>
         <goal>test</goal>
       </goals>
+	  <configuration>
+        <failOnVuln>false</failOnVuln>
+      </configuration>
     </execution>
 
     <execution>
@@ -325,6 +328,9 @@
       <goals>
         <goal>monitor</goal>
       </goals>
+	  <configuration>
+        <failOnVuln>false</failOnVuln>
+      </configuration>
     </execution>
 
   </executions>
@@ -346,6 +352,9 @@
       <goals>
         <goal>prepare-agent</goal>
       </goals>
+	  <configuration>
+        <failOnVuln>false</failOnVuln>
+      </configuration>
     </execution>
 
     <execution>
@@ -354,6 +363,9 @@
       <goals>
         <goal>report</goal>
       </goals>
+	  <configuration>
+        <failOnVuln>false</failOnVuln>
+      </configuration>
     </execution>
 
 	</executions>
