@@ -25,21 +25,11 @@ pipeline {
     stage('Run SCA Analysis using Snyk') {
       steps {
         withCredentials([string(credentialsId: 'SNYK_TOKEN', variable: 'SNYK_TOKEN')]) {
-          sh 'mvn snyk:test -fn'
-            // snyk auth $SNYK_TOKEN
-            // snyk test --all-projects --severity-threshold=medium
-            // snyk monitor --all-projects
+          sh """
+              snyk auth $SNYK_TOKEN
+              mvn snyk:test -fn
         }
       }
-    }
-  }
-
-  post {
-    always {
-      archiveArtifacts '**/target/site/jacoco/*.xml'
-    }
-    failure {
-      echo 'Build failed. Check SonarQube and Snyk reports.'
     }
   }
 }
