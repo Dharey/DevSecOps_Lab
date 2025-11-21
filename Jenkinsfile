@@ -28,6 +28,7 @@ pipeline {
           sh """
               snyk auth $SNYK_TOKEN
               mvn snyk:test -fn
+        """
         }
       }
     }
