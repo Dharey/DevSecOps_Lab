@@ -4,7 +4,7 @@ pipeline {
     maven 'Java_Maven'  
     }
   
-  stages {
+    stages {
       stage('Run Sonar Analysis') {
         environment {
           SONAR_TOKEN = credentials('SONARQUBE_TOKEN')
@@ -17,8 +17,8 @@ pipeline {
           -Dsonar.host.url=https://sonarcloud.io \
           -Dsonar.login=$SONAR_TOKEN
         """
-			          }
-            }
+			  }
+      }
       stage('Run SCA Analysis using Snyk') {
         steps {		
           withCredentials([string(credentialsId: 'SNYK_TOKEN', variable: 'SNYK_TOKEN')]) {
@@ -31,8 +31,9 @@ pipeline {
           }
         }
       }
-
-      post {
+    }
+  
+    post {
         always {
             junit '**/target/surefire-reports/*.xml'          // Test results
             archiveArtifacts '**/target/site/jacoco/*.xml'    // Coverage reports
@@ -40,6 +41,6 @@ pipeline {
         failure {
             echo 'Build failed. Check SonarQube and Snyk reports.'
         }
-      }
-  }
+    }
+
 }
