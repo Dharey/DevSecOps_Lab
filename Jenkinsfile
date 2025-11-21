@@ -36,7 +36,6 @@ pipeline {
 
   post {
     always {
-      junit '**/target/surefire-reports/*.xml'
       archiveArtifacts '**/target/site/jacoco/*.xml'
     }
     failure {
