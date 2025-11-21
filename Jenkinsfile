@@ -23,7 +23,7 @@ pipeline {
         steps {		
           withCredentials([string(credentialsId: 'SNYK_TOKEN', variable: 'SNYK_TOKEN')]) {
             sh """
-            snyk auth ${SNYK_TOKEN}
+            snyk auth $SNYK_TOKEN
             snyk test --all-projects --severity-threshold=medium
             snyk monitor --all-projects
             """

@@ -302,27 +302,8 @@
 					</execution>
 				</executions>
 			</plugin>
-			<plugin>
-				<groupId>org.jacoco</groupId>
-				<artifactId>jacoco-maven-plugin</artifactId>
-				<version>0.8.12</version>
-				<executions>
-					<execution>
-					<goals>
-						<goal>prepare-agent</goal>
-					</goals>
-					</execution>
-					<execution>
-					<id>report</id>
-					<phase>verify</phase>
-					<goals>
-						<goal>report</goal>
-					</goals>
-					</execution>
-				</executions>
-				</plugin>
 			<!--# Changes for Software Composition Analysis Scan using Snyk
-#By ASecurityGuru
+# By ASecurityGuru
 -->
     <!-- Example Plugin Configuration -->
     <plugin>
@@ -343,10 +324,28 @@
         </execution>
       </executions>
       <configuration>
-	  <org>Dharey</org>
+	  <org>3be9af4b-29a7-4cfe-9e4b-4579dabdc20e</org>
       </configuration>
     </plugin>
 <!-- Snyk Changes for SCA Ends Here -->
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.8.12</version>
+				<executions>
+					<execution>
+					<goals>
+						<goal>prepare-agent</goal>
+					</goals>
+					</execution>
+					<execution>
+					<phase>verify</phase>
+					<goals>
+						<goal>report</goal>
+					</goals>
+					</execution>
+				</executions>
+				</plugin>
 		</plugins>
 		<pluginManagement>
 			<plugins>
